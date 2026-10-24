@@ -96,6 +96,8 @@ The rendered `.env.example` and the Prisma fallback in `prisma.config.ts` still 
    pnpm dev
    ```
 
+   `db:migrate --name init` is for the first run only. Once the migration is committed, any other environment (a second machine, a fresh Codespace) starts with an empty PostgreSQL volume and must replay the committed migrations with `pnpm --filter api db:deploy`. Users are data, so run `auth:create-admin` again per database.
+
    Web app: <http://localhost:5173> · API: <http://localhost:3000/api/health> · API docs: <http://localhost:3000/docs>
 
 6. **Commit everything**, including `pnpm-lock.yaml`, `.devcontainer/.scaffolded`, `apps/api/prisma/migrations/` and the generated `openapi.json` / `schema.d.ts`.

@@ -87,11 +87,12 @@ Locally, open the repository with VS Code and run **Dev Containers: Reopen in Co
 
 Prerequisites: Docker with Compose v2.20+ and the Dev Containers extension, or a GitHub Codespace. Node, pnpm and PostgreSQL live inside the container and are not required on the host.
 
-1. **Create the database tables** (the template ships the schema but no migration):
+1. **Apply the database schema.** Each machine and Codespace has its own empty PostgreSQL volume; the migrations are committed, the data is not. Replay them:
    ```bash
-   pnpm --filter api db:migrate --name init
+   pnpm --filter api db:deploy
    ```
-2. **Bootstrap an admin (optional).** There is no default admin and sign-up creates a `user`:
+   Only a fresh template with no `apps/api/prisma/migrations/` uses `pnpm --filter api db:migrate --name init` instead. See [Installation §2](docs/INSTALLATION.md#2-first-run).
+2. **Bootstrap an admin (optional; per database).** There is no default admin and sign-up creates a `user`:
    ```bash
    pnpm --filter api auth:create-admin \
      --email admin@example.com \

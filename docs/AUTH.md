@@ -756,6 +756,14 @@ pnpm --filter api db:generate
 pnpm gen:api
 ```
 
+Once that migration is committed, later environments (another machine, a fresh Codespace, a recreated database volume) have an empty database and must replay it instead of authoring a new one:
+
+```bash
+pnpm --filter api db:deploy
+```
+
+`db:deploy` applies pending migrations only; `db:migrate` compares `schema.prisma` with the database and would try to create a second migration. Users and sessions live in the database, so `auth:create-admin` must also be re-run per new database.
+
 ### After changing the application schema
 
 ```bash

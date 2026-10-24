@@ -1,0 +1,15 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "private": true,
+  "packageManager": "pnpm@{{PNPM_VERSION}}",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "gen:api": "pnpm --filter api openapi && pnpm --filter {{NPM_SCOPE}}/api-client generate"
+  }
+}

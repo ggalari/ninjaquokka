@@ -1,0 +1,14 @@
+# Host-only database override.
+#
+# Publishes PostgreSQL on the host loopback so the API and web app can run
+# directly on the host (see docs/INSTALLATION.md, scenario 2.1):
+#
+#   docker compose -f .devcontainer/docker-compose.yml \
+#     -f .devcontainer/docker-compose.db.yml up -d db
+#
+# Do not use this file with the dev container: VS Code/Codespaces forward
+# port 5432 themselves, and publishing it here would conflict.
+services:
+  db:
+    ports:
+      - '127.0.0.1:5432:5432'

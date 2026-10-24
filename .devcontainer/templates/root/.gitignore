@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+.env
+!.devcontainer/.env
+.pnpm-store
+*.tsbuildinfo
+apps/api/src/generated
+kilo.json
+.history

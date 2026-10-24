@@ -1,0 +1,28 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "model": "kilo/kilo-auto/free",
+  "provider": {
+    "anthropic": {},
+    "deepseek": {
+      "options": {
+        "baseURL": "https://api.deepseek.com/v1"
+      },
+      "models": {
+        "deepseek-chat": { "name": "DeepSeek Chat" },
+        "deepseek-reasoner": { "name": "DeepSeek Reasoner" }
+      }
+    },
+    "openrouter": {
+      "options": {
+        "baseURL": "https://openrouter.ai/api/v1"
+      },
+      "whitelist": [
+        "meta-llama/llama-3.3-70b-instruct",
+        "google/gemini-2.0-flash-001",
+        "mistralai/mistral-7b-instruct",
+        "qwen/qwen-2.5-72b-instruct",
+        "NousResearch/Hermes-3-Llama-3-70B"
+      ]
+    }
+  }
+}

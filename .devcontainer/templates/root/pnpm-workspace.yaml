@@ -1,0 +1,10 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+# pnpm blocks dependency install scripts unless approved. Prisma's scripts fetch
+# its engines, and esbuild (used by tsx and Vite) verifies its native binary.
+allowBuilds:
+  'prisma': true
+  '@prisma/engines': true
+  'esbuild': true

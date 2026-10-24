@@ -1,0 +1,12 @@
+node_modules
+dist
+.turbo
+.env
+.pnpm-store
+.kilo
+.devcontainer
+*.tsbuildinfo
+apps/api/src/generated
+pnpm-lock.yaml
+packages/api-client/openapi.json
+packages/api-client/src/schema.d.ts

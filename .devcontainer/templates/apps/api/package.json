@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "openapi": "prisma generate && tsx src/openapi-export.ts",
+    "auth:generate": "pnpm dlx auth@latest generate --config src/auth/auth.cli.ts -y",
+    "auth:create-admin": "pnpm dlx auth@latest create-admin --config src/auth/auth.cli.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:studio": "prisma studio"
+  }
+}

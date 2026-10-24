@@ -1,0 +1,26 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "PORT",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "TRUSTED_ORIGINS",
+    "CODESPACE_NAME",
+    "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN",
+    "AUTH_EMAIL_PASSWORD_ENABLED",
+    "AUTH_SSO_PROVIDER_ID",
+    "AUTH_SSO_DISCOVERY_URL",
+    "AUTH_SSO_CLIENT_ID",
+    "AUTH_SSO_CLIENT_SECRET",
+    "AUTH_SSO_SCOPES",
+    "AUTH_SSO_LABEL"
+  ],
+  "tasks": {
+    "db:generate": { "cache": false },
+    "build": { "dependsOn": ["^build", "db:generate"], "outputs": ["dist/**"] },
+    "typecheck": { "dependsOn": ["^typecheck", "db:generate"] },
+    "test": { "cache": false },
+    "dev": { "dependsOn": ["db:generate"], "cache": false, "persistent": true }
+  }
+}
